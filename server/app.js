@@ -1,8 +1,7 @@
 var path          = require('path');
 var express       = require ('express');
 var bodyParser    = require('body-parser');
-// var categoryCtrl  = require('./api/category/category.controller');
-// var furnitureCtrl = require('./api/furniture/furniture.controller');
+var foodcourtCtrl  = require('./api/foodcourt/foodcourt.controller');
 
 var app  = express();
 var cors = require('cors');
@@ -14,7 +13,7 @@ app.use(express.static(path.join(__dirname, "../public")));
 
 app.use(cors());
 
-// app.get ("/api/category",  categoryCtrl.list);
+app.get ("/api/foodcourt",  foodcourtCtrl.list);
 // app.get ("/api/category/:cat_id/furniture",  furnitureCtrl.list);
 
 // Catch all
