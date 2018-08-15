@@ -1,13 +1,13 @@
 var configDB = require("../../configDB");
 var Foodcourtstall = require("../../database").Foodcourtstall;
 var Foodcourt = require("../../database").Foodcourt;
-
+var Foodcourtdish = require("../../database").Foodcourtdish;
 
 exports.list = function (req, resp) {
 
-    var whereClauseCat = (req.params.fc_id) ? {fc_id: parseInt(req.params.fc_id)} : {};
+    var whereClauseCat = (req.params.stall_id) ? {stall_id: parseInt(req.params.stall_id)} : {};
 
-    Foodcourtstall
+    Foodcourtdish
         .findAll({  
             where: whereClauseCat
         }).then(function (result) {

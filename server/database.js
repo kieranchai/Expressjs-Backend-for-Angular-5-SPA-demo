@@ -15,13 +15,21 @@ database = new Sequelize(
     });
 
 // include the models
-
-// var Furniture = require("./server/models/furniture.model")(database);
-// var Category = require("./server/models/category.model")(database);
-
-// Category.hasMany(Furniture, {
-//     foreignKey: 'cat_id'
-// });
+var News = require("../server/models/news.model")(database);
+var Feedback = require("../server/models/feedback.model")(database);
+var Foodcourtstall = require("../server/models/foodcourtstall.model")(database);
+var Foodcourt = require("../server/models/Foodcourt.model")(database);
+var Foodcourtdish = require("../server/models/foodcourtdish.model")(database);
+var User = require("../server/models/user.model")(database);
+Foodcourt.hasMany(Foodcourtstall, {
+     foreignKey: 'fc_id'
+});
+Foodcourt.hasMany(Foodcourtdish, {
+    foreignKey: 'fc_id'
+})
+Foodcourtstall.hasMany(Foodcourtdish, {
+    foreignKey: 'stall_id'
+})
 
 database
     .sync({
@@ -34,12 +42,14 @@ database
 
 // Expose Models
 
-// module.exports = {
-
-//     Category: Category,
-//     Furniture: Furniture
-
-// };    
+module.exports = {
+ News : News,
+ User: User,
+ Feedback: Feedback,
+ Foodcourt: Foodcourt,
+ Foodcourtstall: Foodcourtstall,
+ Foodcourtdish: Foodcourtdish
+};    
 
 
 

@@ -1,10 +1,9 @@
 var configDB = require("../../configDB");
-var Foodcourt = require("../../database").Foodcourt;
-
+var Feedback = require("../../database").Feedback;
 
 exports.list = function (req, resp) {
-    Foodcourt
-        .findAll(  // select * from foodcourt
+    Feedback
+        .findAll(  // select * from Feedback
         ).then(function (result) {
             resp
                 .status(200)
@@ -21,7 +20,7 @@ exports.create = function (req, resp) {
     } else {
         var newInfo = req.body.info;
 
-        Foodcourt.create(newInfo)
+        Feedback.create(newInfo)
         .then(function (newRecord) {
             resp.status(200).type("application/json").json(newRecord);
         }).catch(function (err) {
