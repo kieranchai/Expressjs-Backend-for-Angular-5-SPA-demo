@@ -42,14 +42,12 @@ app.use(function (req, resp) {
 
 
 // // set port and start webserver
-// app.listen('3000', function () {
-//     console.log("Server running at http://localhost:3000");
-// });
+app.listen('3000', function () {
+    console.log("Server running at http://localhost:3000");
+});
 
 
-// Configured for HTTPS, default to https://localhost:3000
-var httpServer = http.createServer(app);
+// Configured for HTTPS, default to https://localhost:4000
 var httpsServer = https.createServer(credentials, app);
 
-httpServer.listen(8080);
-httpsServer.listen(3000);
+httpsServer.listen(4000);

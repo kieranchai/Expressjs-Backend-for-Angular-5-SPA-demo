@@ -5,7 +5,7 @@ var Foodcourt = database.Foodcourt;
 var Foodcourtstall = database.Foodcourtstall;
 var News = database.News;
 var Foodcourtdish = database.Foodcourtdish;
-var apiURI = "https://localhost:3000";
+var apiURI = "https://localhost:4000";
 
 module.exports = function() {
     if (configDB.seed) {
